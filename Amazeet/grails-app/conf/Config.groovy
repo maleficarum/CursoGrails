@@ -63,7 +63,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://www.changeme.com"
+        grails.serverURL = "http://localhost:8080/Amazeet"
     }
 }
 

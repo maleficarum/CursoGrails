@@ -29,7 +29,8 @@ environments {
             dbCreate = "validate"
 		    pooled = true
 		    driverClassName = "org.postgresql.Driver"
-		    username = "sa"
+			url = "jdbc:postgresql://localhost/amazeet"
+		    username = "angellore"
 		    password = ""
 			logSql = false
         }
