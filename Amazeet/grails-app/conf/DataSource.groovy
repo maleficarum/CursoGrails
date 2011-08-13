@@ -3,6 +3,7 @@ dataSource {
     driverClassName = "org.h2.Driver"
     username = "sa"
     password = ""
+	logSql = true
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -13,8 +14,8 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb"
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:h2:devDb"
         }
     }
     test {
@@ -25,8 +26,12 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:prodDb"
+            dbCreate = "validate"
+		    pooled = true
+		    driverClassName = "org.postgresql.Driver"
+		    username = "sa"
+		    password = ""
+			logSql = false
         }
     }
 }
