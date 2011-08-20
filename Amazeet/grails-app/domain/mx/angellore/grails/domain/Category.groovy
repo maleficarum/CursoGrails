@@ -6,7 +6,14 @@ class Category {
 	String description
 	Date dateCreated
 	Date lastUpdated
+	
+	static hasMany = [products:Product]
+	static belongsTo = mx.angellore.grails.domain.Product
 
     static constraints = {
     }
+
+	static mapping = {
+		table 'categorias'
+	}
 }
