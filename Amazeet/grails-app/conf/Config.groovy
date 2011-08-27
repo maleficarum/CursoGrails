@@ -62,7 +62,9 @@ environments {
         grails.logging.jul.usebridge = true
     }
     production {
+        // Disabled loggging
         grails.logging.jul.usebridge = false
+        // We use a url for production environment
         grails.serverURL = "http://localhost:8080/Amazeet"
     }
 }
@@ -74,6 +76,7 @@ log4j = {
     //
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
+    //    file name:'file', file:'/var/logs/mylog.log'
     //}
 
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
@@ -89,4 +92,10 @@ log4j = {
            'net.sf.ehcache.hibernate'
 
     warn   'org.mortbay.log'
+    
+    debug  'grails.app.controllers'
+    debug  'grails.app.taglib.com.synergyj.store'
+    debug  'grails.app.services.com.synergyj.store'
+    debug  'grails.app.domain'
+    debug  'grails.app.conf'
 }

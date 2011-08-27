@@ -1,9 +1,8 @@
 dataSource {
     pooled = true
-    url = "jdbc:h2:amazeet"
+    driverClassName = "org.h2.Driver"
     username = "sa"
-    password = "sa"
-	logSql = true
+    password = ""
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -14,18 +13,25 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:h2:devDb"
         }
     }
     test {
         dataSource {
-            dbCreate = "create"
+            dbCreate = "update"
+            url = "jdbc:h2:mem:testDb"
         }
     }
     production {
         dataSource {
-            dbCreate = "validate"
-			logSql = false
+            pooled = true
+            dbCreate = "update"
+            url = "jdbc:mysql://localhost/amazeet"
+            driverClassName = "com.mysql.jdbc.Driver"
+            dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+            username = "root"
+            password = ""
         }
     }
 }

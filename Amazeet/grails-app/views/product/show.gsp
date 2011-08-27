@@ -1,5 +1,5 @@
 
-<%@ page import="mx.angellore.grails.domain.Product" %>
+<%@ page import="com.synergyj.store.Product" %>
 <!doctype html>
 <html>
 	<head>
@@ -68,13 +68,9 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${productInstance?.categories}">
+				<g:if test="${productInstance?.photo}">
 				<li class="fieldcontain">
-					<span id="categories-label" class="property-label"><g:message code="product.categories.label" default="Categories" /></span>
-					
-						<g:each in="${productInstance.categories}" var="c">
-						<span class="property-value" aria-labelledby="categories-label"><g:link controller="category" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
-						</g:each>
+					<span id="photo-label" class="property-label"><g:message code="product.photo.label" default="Photo" /></span>
 					
 				</li>
 				</g:if>

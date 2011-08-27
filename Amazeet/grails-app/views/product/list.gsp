@@ -1,5 +1,5 @@
 
-<%@ page import="mx.angellore.grails.domain.Product" %>
+<%@ page import="com.synergyj.store.Product" %>
 <!doctype html>
 <html>
 	<head>
@@ -8,9 +8,6 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<m:print size="2">
-			Test
-		</m:print>
 		<a href="#list-product" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -37,7 +34,7 @@
 					
 						<g:sortableColumn property="price" title="${message(code: 'product.price.label', default: 'Price')}" />
 					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'product.dateCreated.label', default: 'Date Created')}" />
+						<g:sortableColumn property="photo" title="${message(code: 'product.photo.label', default: 'Photo')}" />
 					
 					</tr>
 				</thead>
@@ -55,7 +52,7 @@
 					
 						<td>${fieldValue(bean: productInstance, field: "price")}</td>
 					
-						<td><g:formatDate date="${productInstance.dateCreated}" /></td>
+						<td>${fieldValue(bean: productInstance, field: "photo")}</td>
 					
 					</tr>
 				</g:each>

@@ -1,4 +1,4 @@
-<%@ page import="mx.angellore.grails.domain.Product" %>
+<%@ page import="com.synergyj.store.Product" %>
 
 
 
@@ -15,7 +15,7 @@
 		<g:message code="product.description.label" default="Description" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="description" maxlength="200" required="" value="${productInstance?.description}"/>
+	<g:textArea name="description" cols="40" rows="5" maxlength="1000" required="" value="${productInstance?.description}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: productInstance, field: 'technicalDetails', 'error')} required">
@@ -23,7 +23,7 @@
 		<g:message code="product.technicalDetails.label" default="Technical Details" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="technicalDetails" maxlength="200" required="" value="${productInstance?.technicalDetails}"/>
+	<g:textArea name="technicalDetails" cols="40" rows="5" maxlength="1000" required="" value="${productInstance?.technicalDetails}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: productInstance, field: 'sku', 'error')} required">
@@ -31,7 +31,7 @@
 		<g:message code="product.sku.label" default="Sku" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="sku" maxlength="20" required="" value="${productInstance?.sku}"/>
+	<g:textField name="sku" maxlength="15" required="" value="${productInstance?.sku}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: productInstance, field: 'price', 'error')} required">
@@ -42,11 +42,11 @@
 	<g:field type="number" name="price" required="" value="${fieldValue(bean: productInstance, field: 'price')}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'categories', 'error')} ">
-	<label for="categories">
-		<g:message code="product.categories.label" default="Categories" />
+<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'photo', 'error')} ">
+	<label for="photo">
+		<g:message code="product.photo.label" default="Photo" />
 		
 	</label>
-	<g:select name="categories" from="${mx.angellore.grails.domain.Category.list()}" multiple="multiple" optionKey="id" size="5" value="${productInstance?.categories*.id}" class="many-to-many"/>
+	<input type="file" id="photo" name="photo" />
 </div>
 

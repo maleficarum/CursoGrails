@@ -1,4 +1,4 @@
-<%@ page import="mx.angellore.grails.domain.Product" %>
+<%@ page import="com.synergyj.store.Product" %>
 <!doctype html>
 <html>
 	<head>
@@ -27,7 +27,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form method="post" >
+			<g:form method="post"  enctype="multipart/form-data">
 				<g:hiddenField name="id" value="${productInstance?.id}" />
 				<g:hiddenField name="version" value="${productInstance?.version}" />
 				<fieldset class="form">
