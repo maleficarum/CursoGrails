@@ -1,6 +1,8 @@
 package com.synergyj.store
 
-class Product {
+import org.grails.comments.*
+
+class Product implements Commentable {
   
   String name
   String description
@@ -11,6 +13,15 @@ class Product {
   
   Date dateCreated
   Date lastUpdated
+
+	//read-only : Para catalogos, cuadno no se deben alterar despues de crearlos
+	//nonstrict-read-write: Si la aplicacion raramente modifica datos y los updates en transacciones no son un problema
+	//read-write: Para usuarios de apps. Si la aplicacion requiere modiicar frecuentemente el modelo de dominio
+	//transactional : Provee comportamiento totalmente transaccional sin oportunidad a dity-reads, pero se necesita un proveedor
+
+	transient onLoad = {
+		println 'cargando objetos'
+	}
 
   static constraints = {
     name nullable:false,blank:false,size:3..50

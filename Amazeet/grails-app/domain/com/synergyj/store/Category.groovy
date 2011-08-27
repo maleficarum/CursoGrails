@@ -10,6 +10,11 @@ class Category {
   Date dateCreated
   Date lastUpdated
 
+	def mappings = {
+		cache true
+		
+	}
+
   static constraints = {
     name nullable:false,blank:false,size:3..50
     description nullable:false,blank:false,size:1..1000,validator:{ val,obj -> 

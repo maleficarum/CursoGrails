@@ -7,6 +7,16 @@ class UrlMappings {
 			}
 		}
 
+		"/addProductToCart/$id" {
+			controller="store"
+			action="addItem"
+		}
+		
+		name addProduct2Cart:"/addProduct2Cart/$id" {
+			controller="store"
+			action="addItem"
+		}
+
 		"/"(view:"/index")
 		"500"(view:'/error')
 	}

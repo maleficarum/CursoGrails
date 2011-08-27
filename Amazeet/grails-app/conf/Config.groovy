@@ -99,3 +99,8 @@ log4j = {
     debug  'grails.app.domain'
     debug  'grails.app.conf'
 }
+grails.views.javascript.library="jquery"
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.synergyj.store.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.synergyj.store.UserRole'
+grails.plugins.springsecurity.authority.className = 'com.synergyj.store.Role'

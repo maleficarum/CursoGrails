@@ -18,6 +18,8 @@ Released   : 20090918
   <link href="${createLinkTo(dir:'earthlingtwo/',file:'style.css')}" rel="stylesheet" type="text/css" media="screen" />
   <!-- Importante el layout head -->
   <g:layoutHead/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" language="javascript">
+	</script>
 </head>
 <body>
   <div id="wrapper">
@@ -47,7 +49,9 @@ Released   : 20090918
       <div id="sidebar">
         <ul>
           <li>
-            <g:render template="/shoppingCart/myCart" />
+			<div id="myShoppingCart">
+            	<g:render template="/shoppingCart/myCart" />
+			</div>
           </li>
           <li>
             <g:render template="/category/shortList" model="[categoryList:com.synergyj.store.Category.list()]" />

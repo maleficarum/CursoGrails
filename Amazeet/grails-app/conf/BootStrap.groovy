@@ -8,6 +8,22 @@ class BootStrap {
         
       }
       development {
+	
+//		if(!User.count()) {
+			def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+			def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
+			
+			def testUser = new User(username: 'mortal', enabled: true, password: 'password')
+			testUser.save(flush: true)
+
+			def testAdmin = new User(username: 'immortal', enabled: true, password: 'password')
+			testAdmin.save(flush: true)
+
+			UserRole.create testUser, userRole, true			
+			UserRole.create testAdmin, adminRole, true				
+//		}
+	
+	
         if(!Category.count){
           def c1 = new Category(
             name:"Moda",

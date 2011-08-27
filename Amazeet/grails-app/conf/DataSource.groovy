@@ -3,18 +3,20 @@ dataSource {
     driverClassName = "org.h2.Driver"
     username = "sa"
     password = ""
+	logSql = false
 }
 hibernate {
     cache.use_second_level_cache = true
     cache.use_query_cache = true
     cache.provider_class = 'net.sf.ehcache.hibernate.EhCacheProvider'
+	hibernate.format_sql = true
 }
 // environment specific settings
 environments {
     development {
         dataSource {
-            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:devDb"
+            dbCreate = "create" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:h2:angellore"
         }
     }
     test {

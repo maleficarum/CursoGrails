@@ -37,7 +37,23 @@ grails.project.dependency.resolution = {
         compile ":hibernate:$grailsVersion"
         compile ":jquery:1.6.1.1"
         compile ":resources:1.0.2"
+		compile ":mail:1.0-SNAPSHOT"
+		compile "org.grails.plugins:commentable:0.7.5"
+		compile "org.grails.plugins:spring-security-core:1.2.1"
 
         build ":tomcat:$grailsVersion"
     }
+}
+
+grails {
+   mail {
+     host = "smtp.gmail.com"
+     port = 465
+     username = ""
+     password = ""
+     props = ["mail.smtp.auth":"true", 					   
+              "mail.smtp.socketFactory.port":"465",
+              "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+              "mail.smtp.socketFactory.fallback":"true"]
+   }
 }
